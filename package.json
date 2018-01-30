@@ -1,0 +1,38 @@
+{
+  "name": "fuzzy-dbscan",
+  "version": "0.0.1",
+  "description": "Fuzzy DBSCAN algorithm",
+  "main": "./lib/fuzzy-dbscan.js",
+  "scripts": {
+    "test": "mocha",
+    "test:trace": "mocha --trace-deopt --trace-opt > trace.log",
+    "build": "coffee --no-header --bare --output lib --compile src",
+    "bundle": "browserify lib --standalone fuzzy-clustering --outfile fuzzy-clustering.js"
+  },
+  "keywords": [
+    "fuzzy",
+    "clustering",
+    "similarity",
+    "DBSCAN",
+    "algorithm"
+  ],
+  "devDependencies": {
+    "browserify": "^15.2.0",
+    "chai": "^4.1.0",
+    "coffeescript": "^2.1.1",
+    "marked": "^0.3.6",
+    "mocha": "^5.0.0",
+    "pureimage": "^0.1.3",
+    "seed-random": "^2.2.0"
+  },
+  "author": "Christoph Schulz <schulzcbs@gmail.com>",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/schulzch/fuzzy-dbscan-js",
+  "bugs": {
+    "url": "https://github.com/schulzch/fuzzy-dbscan-js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/schulzch/fuzzy-dbscan-js.git"
+  }
+}

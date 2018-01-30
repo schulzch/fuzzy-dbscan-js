@@ -1,0 +1,3 @@
+--require ./node_modules/coffeescript/register
+--compilers coffee:coffeescript/register
+--no-deprecation
