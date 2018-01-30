@@ -7,12 +7,13 @@
     "test": "mocha",
     "test:trace": "mocha --trace-deopt --trace-opt > trace.log",
     "build": "coffee --no-header --bare --output lib --compile src",
-    "bundle": "browserify lib --standalone fuzzy-clustering --outfile fuzzy-clustering.js"
+    "bundle": "browserify lib/fuzzy-dbscan.js --standalone FuzzyDBSCAN --outfile fuzzy-dbscan.js"
   },
   "keywords": [
     "fuzzy",
+	"cluster",
     "clustering",
-    "similarity",
+    "FuzzyDBSCAN",
     "DBSCAN",
     "algorithm"
   ],
