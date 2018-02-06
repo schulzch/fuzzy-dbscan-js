@@ -1,5 +1,6 @@
 # Compiled code
-lib/*.js
+dist/**/*
+!dist/.empty
 fuzzy-dbscan.js
 
 # Logs

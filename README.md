@@ -11,7 +11,7 @@ Download a [release](https://github.com/schulzch/fuzzy-dbscan-js/releases) or:
 ## Usage
 
 ```javascript
-var FuzzyDBSCAN = require('fuzzy-dbscan');
+import {FuzzyDBSCAN} from 'fuzzy-dbscan';
 //Browserify version only, without module loader:
 //var FuzzyDBSCAN = global.FuzzyDBSCAN;
 ```
@@ -32,7 +32,7 @@ Moreover, the algorithm distinguishes between `CORE` `NOISE` and `BORDER` points
 var euclideanDistance = function(a, b) {
   return Math.sqrt(Math.pow(b.x - a.x, 2) + Math.pow(b.y - a.y, 2));
 };
-var fuzzyDBSCAN = FuzzyDBSCAN().epsMin(10.0).epsMax(20.0).mPtsMin(1).mPtsMax(2).distance(euclideanDistance);
+var fuzzyDBSCAN = new FuzzyDBSCAN().epsMin(10.0).epsMax(20.0).mPtsMin(1).mPtsMax(2).distanceFn(euclideanDistance);
 
 console.log(fuzzyDBSCAN.cluster([{x: 0, y: 0}, {x: 100, y: 100}, {x: 105, y: 105}, {x: 115, y: 115}]));
 ```

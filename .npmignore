@@ -1,5 +1,6 @@
-lib/.empty
+dist/.empty
 test/
 src/
 .npmignore
+tsconfig.json
 fuzzy-dbscan.js
