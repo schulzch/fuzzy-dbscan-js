@@ -3,32 +3,42 @@ class FuzzyDBSCAN
 	_epsMax: undefined
 	_mPtsMin: undefined
 	_mPtsMax: undefined
-	_distance: undefined
+	_distanceFn: undefined
 
 	epsMin: (value) =>
-		@_epsMin = value
-		return @
+		if value
+			@_epsMin = value
+			return @
+		return @_epsMin
 
 	epsMax: (value) =>
-		@_epsMax = value
-		return @
+		if value
+			@_epsMax = value
+			return @
+		return @_epsMax
 
 	mPtsMin: (value) =>
-		@_mPtsMin = value
-		return @
+		if value
+			@_mPtsMin = value
+			return @
+		return @_mPtsMin
 
 	mPtsMax: (value) =>
-		@_mPtsMax = value
-		return @
+		if value
+			@_mPtsMax = value
+			return @
+		return @_mPtsMax
 
 	distance: (fn) =>
-		@_distance = fn
-		return @
+		if fn
+			@_distanceFn = fn
+			return @
+		return @_distanceFn
 
 	cluster: (points) =>
 		noiseCluster = []
 		clusters = []
-		visited = new Array(points.lenght).fill(false)
+		visited = new Array(points.length).fill(false)
 		for pointIndex in [0...points.length] by 1 when not visited[pointIndex]
 			visited[pointIndex] = true
 			neighborIndices = @_regionQuery(points, pointIndex)
@@ -68,7 +78,7 @@ class FuzzyDBSCAN
 		point = points[pointIndex]
 		neighborIndices = new Set()
 		for neighbourIndex in [0...points.length] by 1 when neighbourIndex isnt pointIndex
-			if @_distance(points[neighbourIndex], point) <= @_epsMax
+			if @_distanceFn(points[neighbourIndex], point) <= @_epsMax
 				neighborIndices.add neighbourIndex
 		return neighborIndices
 
@@ -88,7 +98,7 @@ class FuzzyDBSCAN
 			return (n - @_mPtsMin) / (@_mPtsMax - @_mPtsMin)
 
 	_muDistance: (pointA, pointB) ->
-		d = @_distance(pointA, pointB)
+		d = @_distanceFn(pointA, pointB)
 		if d <= @_epsMin
 			return 1
 		else if d > @_epsMax
