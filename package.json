@@ -1,13 +1,14 @@
 {
   "name": "fuzzy-dbscan",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Fuzzy DBSCAN algorithm",
-  "main": "./lib/fuzzy-dbscan.js",
+  "main": "./dist/fuzzy-dbscan.js",
+  "types": "./dist/fuzzy-dbscan.d.ts",
   "scripts": {
     "test": "mocha --require coffeescript/register test/*",
     "test:trace": "mocha --require coffeescript/register --trace-deopt --trace-opt test/* > trace.log",
-    "build": "coffee --no-header --bare --output lib --compile src",
-    "bundle": "browserify lib/fuzzy-dbscan.js --standalone FuzzyDBSCAN --outfile fuzzy-dbscan.js"
+    "build": "coffee --no-header --bare --output dist --compile src",
+    "bundle": "browserify dist/fuzzy-dbscan.js --standalone FuzzyDBSCAN --outfile fuzzy-dbscan.js"
   },
   "keywords": [
     "fuzzy",

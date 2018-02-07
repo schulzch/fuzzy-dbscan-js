@@ -29,7 +29,7 @@ class FuzzyDBSCAN
 			return @
 		return @_mPtsMax
 
-	distance: (fn) =>
+	distanceFn: (fn) =>
 		if fn
 			@_distanceFn = fn
 			return @
@@ -44,7 +44,7 @@ class FuzzyDBSCAN
 			neighborIndices = @_regionQuery(points, pointIndex)
 			pointLabel = @_muMinP(@_density(pointIndex, neighborIndices, points))
 			if pointLabel is 0
-				noiseCluster.push {index: pointIndex, cause: 'NOISE', label: 1.0}
+				noiseCluster.push {index: pointIndex, category: 'NOISE', label: 1.0}
 			else
 				clusters.push @_expandClusterFuzzy(pointLabel, pointIndex, neighborIndices, points, visited)
 		if noiseCluster.length > 0
@@ -53,7 +53,7 @@ class FuzzyDBSCAN
 
 	_expandClusterFuzzy: (pointLabel, pointIndex, neighborIndices, points, visited) =>
 		cluster = []
-		cluster.push {index: pointIndex, cause: 'CORE', label: pointLabel}
+		cluster.push {index: pointIndex, category: 'CORE', label: pointLabel}
 		borderPoints = []
 		for neighborIndex from neighborIndices
 			neighbor = points[neighborIndex]
@@ -63,9 +63,9 @@ class FuzzyDBSCAN
 			if neighborLabel > 0
 				for neighborNeighborIndex from neighborNeighborIndices
 					neighborIndices.add neighborNeighborIndex
-				cluster.push {index: neighborIndex, cause: 'CORE', label: neighborLabel}
+				cluster.push {index: neighborIndex, category: 'CORE', label: neighborLabel}
 			else
-				borderPoints.push {index: neighborIndex, cause: 'BORDER', label: Number.MAX_VALUE}
+				borderPoints.push {index: neighborIndex, category: 'BORDER', label: Number.MAX_VALUE}
 		for borderPoint from borderPoints
 			for clusterPoint from cluster
 				d = @_muDistance(points[borderPoint.index], points[clusterPoint.index])

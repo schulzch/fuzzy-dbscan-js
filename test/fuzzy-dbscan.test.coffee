@@ -67,7 +67,7 @@ describe 'FuzzyDBSCAN', ->
 
 		it 'should reduce to classic DBSCAN (epsMin = epsMax, mPtsMin = mPtsMax)', ->
 			fuzzyDBSCAN = FuzzyDBSCAN()
-				.distance(euclideanDistance)
+				.distanceFn(euclideanDistance)
 				.epsMin(10.0)
 				.epsMax(10.0)
 				.mPtsMin(50)
@@ -78,7 +78,7 @@ describe 'FuzzyDBSCAN', ->
 
 		it 'should reduce to FuzzyBorderDBSCAN (mPtsMin = mPtsMax)', ->
 			fuzzyDBSCAN = FuzzyDBSCAN()
-				.distance(euclideanDistance)
+				.distanceFn(euclideanDistance)
 				.epsMin(10.0)
 				.epsMax(20.0)
 				.mPtsMin(50)
@@ -89,7 +89,7 @@ describe 'FuzzyDBSCAN', ->
 
 		it 'should reduce to FuzzyCoreDBSCAN (epsMin = epsMax)', ->
 			fuzzyDBSCAN = FuzzyDBSCAN()
-				.distance(euclideanDistance)
+				.distanceFn(euclideanDistance)
 				.epsMin(10.0)
 				.epsMax(10.0)
 				.mPtsMin(1)
@@ -102,7 +102,7 @@ describe 'FuzzyDBSCAN', ->
 		it 'should find fuzzy cores', ->
 			points = [...uniformCircle(40, 0, 0, 10), ...uniformCircle(80, 100, 0, 10)]
 			fuzzyDBSCAN = FuzzyDBSCAN()
-				.distance(euclideanDistance)
+				.distanceFn(euclideanDistance)
 				.epsMin(10.0)
 				.epsMax(10.0)
 				.mPtsMin(50)
@@ -114,7 +114,7 @@ describe 'FuzzyDBSCAN', ->
 		it 'should find fuzzy borders', ->
 			points = [...uniformCircle(40, 0, 0, 10), ...uniformCircle(80, 100, 0, 10)]
 			fuzzyDBSCAN = FuzzyDBSCAN()
-				.distance(euclideanDistance)
+				.distanceFn(euclideanDistance)
 				.epsMin(50.0)
 				.epsMax(90.0)
 				.mPtsMin(50)
@@ -126,7 +126,7 @@ describe 'FuzzyDBSCAN', ->
 		it 'should find fuzzy cores and borders', ->
 			points = [...uniformCircle(40, 30, 0, 15), ...uniformCircle(10, 50, 0, 10), ...uniformCircle(40, 70, 0, 15)]
 			fuzzyDBSCAN = FuzzyDBSCAN()
-				.distance(euclideanDistance)
+				.distanceFn(euclideanDistance)
 				.epsMin(4.0)
 				.epsMax(6.0)
 				.mPtsMin(3)
