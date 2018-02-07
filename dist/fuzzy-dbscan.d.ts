@@ -14,13 +14,17 @@ declare namespace fuzzy_dbscan {
         label: number;
     }
     type DistanceFunction = (a: any, b: any) => number;
-    
     class FuzzyDBSCAN {
-        epsMin(value?: number): FuzzyDBSCAN | number;
-        epsMax(value?: number): FuzzyDBSCAN | number;
-        mPtsMin(value?: number): FuzzyDBSCAN | number;
-        mPtsMax(value?: number): FuzzyDBSCAN | number;
-        distanceFn(fn?: DistanceFunction): FuzzyDBSCAN | DistanceFunction;
+        epsMin(): number;
+        epsMin(value: number): FuzzyDBSCAN;
+        epsMax(): number;
+        epsMax(value: number): FuzzyDBSCAN;
+        mPtsMin(): number;
+        mPtsMin(value: number): FuzzyDBSCAN;
+        mPtsMax(): number;
+        mPtsMax(value: number): FuzzyDBSCAN;
+        distanceFn(): DistanceFunction;
+        distanceFn(fn: DistanceFunction): FuzzyDBSCAN;
         cluster(points: Array<any>): Array<Array<Assignment>>;
     }    
 }

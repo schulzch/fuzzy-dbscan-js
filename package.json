@@ -1,6 +1,6 @@
 {
   "name": "fuzzy-dbscan",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fuzzy DBSCAN algorithm",
   "main": "./dist/fuzzy-dbscan.js",
   "types": "./dist/fuzzy-dbscan.d.ts",
