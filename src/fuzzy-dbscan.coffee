@@ -54,7 +54,7 @@ class FuzzyDBSCAN
 	_expandClusterFuzzy: (pointLabel, pointIndex, neighborIndices, points, visited) =>
 		cluster = [{index: pointIndex, category: 'CORE', label: pointLabel}]
 		borderPoints = []
-		for neighborIndex from neighborIndices
+		for neighborIndex from neighborIndices #XXX: by 1 when not visited[neighborIndex]
 			visited[neighborIndex] = true
 			neighborNeighborIndices = @_regionQuery(points, neighborIndex)
 			neighborLabel = @_muMinP(@_density(neighborIndex, neighborNeighborIndices, points))
