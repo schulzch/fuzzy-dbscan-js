@@ -1,3 +1,5 @@
+**NOTE: This library has been ported to Rust. See [here](https://github.com/schulzch/fuzzy_dbscan) for a more maintained version that can also be used with NodeJS or your Browser via WASM.**
+
 # fuzzy-dbscan.js [![NPM version](https://badge.fury.io/js/fuzzy-dbscan.png)](http://badge.fury.io/js/fuzzy-dbscan) 
 
 `fuzzy-dbscan.js` computes [fuzzy clusters](https://en.wikipedia.org/wiki/Fuzzy_clustering) using the FuzzyDBSCAN algorithm [1].
