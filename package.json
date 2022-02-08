@@ -1,6 +1,6 @@
 {
   "name": "fuzzy-dbscan",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Fuzzy DBSCAN algorithm",
   "main": "./dist/fuzzy-dbscan.js",
   "types": "./dist/fuzzy-dbscan.d.ts",
@@ -19,12 +19,12 @@
     "algorithm"
   ],
   "devDependencies": {
-    "browserify": "^16.0.0",
+    "browserify": "^17.0.0",
     "chai": "^4.1.0",
     "coffeescript": "^2.2.1",
-    "marked": "^0.3.6",
-    "mocha": "^5.0.0",
-    "pureimage": "^0.1.4",
+    "marked": "^4.0.12",
+    "mocha": "^9.2.0",
+    "pureimage": "^0.3.8",
     "seed-random": "^2.2.0"
   },
   "author": "Christoph Schulz <schulzcbs@gmail.com>",
